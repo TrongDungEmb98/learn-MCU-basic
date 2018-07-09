@@ -90,7 +90,7 @@ Linker script and memory map
  .stack         0x20000000      0x100 ./output/startup_ARMCM0.o
                 0x20001000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20000f00                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
-                [!provide]                PROVIDE (__stack, __StackTop)
+                [!provide]                PROVIDE (__stack = __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
 LOAD ./output/main.o
 LOAD ./output/startup_ARMCM0.o
@@ -109,13 +109,13 @@ OUTPUT(./output/stm32f030r8t6_gpio.elf elf32-littlearm)
 .debug_line     0x00000000       0xaf
  .debug_line    0x00000000       0xaf ./output/main.o
 
-.debug_str      0x00000000      0x17c
- .debug_str     0x00000000      0x17c ./output/main.o
-                                0x189 (size before relaxing)
+.debug_str      0x00000000      0x17b
+ .debug_str     0x00000000      0x17b ./output/main.o
+                                0x188 (size before relaxing)
 
-.comment        0x00000000       0x7e
- .comment       0x00000000       0x7e ./output/main.o
-                                 0x7f (size before relaxing)
+.comment        0x00000000       0x7f
+ .comment       0x00000000       0x7f ./output/main.o
+                                 0x80 (size before relaxing)
 
 .ARM.attributes
                 0x00000000       0x2f

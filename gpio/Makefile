@@ -8,10 +8,10 @@ INC_DIR		:= $(PRO_DIR)/inc
 SRC_DIR 	:= $(PRO_DIR)/src
 LINKER_FILE	:= $(PRO_DIR)/linker/stm32f0_discovery.ld
 
-COMPILER_DIR 	:= B:/ARM_gcc/gcc
+COMPILER_DIR 	:= D:/gcc_ARM
 
 PREFIX_GCC_COMPILER	:= arm-none-eabi
-CC				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-gcc
+CC				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-gcc.exe
 OBJCPY			:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-objcopy
 ASM				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-as
 LD				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-ld
