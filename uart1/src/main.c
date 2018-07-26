@@ -12,37 +12,22 @@ void delay(unsigned int timeout)
     }
 }
 
-/*Enable Clock*/
-void clock_enable(void)
-{
-	unsigned int tempreg;
-	
-	/*enable clock GPIO C */
-	tempreg = read_reg(RCC_AHBENR,~(1u<<19));
-	tempreg |=	(1u<<19);
-	write_reg(RCC_AHBENR,tempreg);
-	
-	/* enable clock GPIO A */
-	tempreg = read_reg(RCC_AHBENR,~(1u<<17));
-	tempreg |=	(1u<<17);
-	write_reg(RCC_AHBENR,tempreg);
-	
-}
-
 void main(void)
-{
-	unsigned int tempreg;
-	unsigned short int state_led = 0;
-	
+{	
+	SystemInit();
 	clock_enable();
-	Init_Led();
-	Init_Button();
+	init_uart();
+	Init_Pin();
 	inti_interrupt();
+
+	uart_send_string("Hello World");
+	
 	while(1)
 	{
-		led_on(LD4_PIN,GPIOC_BSRR);
-		delay(0xff);
-		led_off(LD4_PIN,GPIOC_BSRR);
-		delay(0xff);
+		if(rx_data != 0)
+		{
+			uart_send_byte(rx_data);
+		}
+		rx_data = 0;
 	}
 }

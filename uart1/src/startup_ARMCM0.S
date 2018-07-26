@@ -99,7 +99,7 @@ __Vectors:
 	.long	Reserved_IRQHandler         /* 24: Reserved                   */
 	.long	Reserved_IRQHandler         /* 25: Reserved                   */
 	.long	Reserved_IRQHandler         /* 26: Reserved                   */
-	.long	Reserved_IRQHandler         /* 27: Reserved                   */
+	.long	USART1_IRQHandler         	/* 27: USART1                     */
 	.long	Reserved_IRQHandler         /* 28: Reserved - CPU FPGA CLCD   */
 	.long	Reserved_IRQHandler         /* 29: Reserved - CPU FPGA        */
 	.long	Reserved_IRQHandler         /* 30: UART3    - CPU FPGA        */

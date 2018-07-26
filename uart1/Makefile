@@ -16,12 +16,13 @@ OBJCPY			:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-objcopy
 ASM				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-as
 LD				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-ld
 
-FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/nvic.o
+FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/nvic.o $(OUTPUT_PATH)/clock.o $(OUTPUT_PATH)/uart.o	 
 
-CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -O0 -g -mthumb -I$(INC_DIR)
+#CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -g -mthumb -w -Wall -I$(INC_DIR) -DCLI_STAND_ALONE
+CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -O0 -g -w -Wall -mthumb -I$(INC_DIR)
 ASM_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -mthumb
 LD_OPT			:= -T $(LINKER_FILE) -Map $(OUTPUT_PATH)/$(PROJ_NAME).map $(FILE_TO_LINK)
-
+#LD_OPT			:= -T $(LINKER_FILE) -Map $(BUILD_DIR)/$(PROJ_NAME).map $(OBJECT_FILE) -L $(COMPILER_DIR)/arm-none-eabi/lib/thumb/v6-m -lc_nano -lnosys
 $(OUTPUT_PATH)/main.o: $(SRC_DIR)/main.c
 	@echo "compile $(SRC_DIR)/main.c file"
 	$(CC) $(CC_OPT) $(SRC_DIR)/main.c -o $(OUTPUT_PATH)/main.o
@@ -33,15 +34,23 @@ $(OUTPUT_PATH)/gpio.o: $(SRC_DIR)/gpio.c
 $(OUTPUT_PATH)/nvic.o: $(SRC_DIR)/nvic.c
 	@echo "compile $(SRC_DIR)/nvic.c file"
 	$(CC) $(CC_OPT) $(SRC_DIR)/nvic.c -o $(OUTPUT_PATH)/nvic.o
+	
+$(OUTPUT_PATH)/clock.o: $(SRC_DIR)/clock.c
+	@echo "compile $(SRC_DIR)/clock.c file"
+	$(CC) $(CC_OPT) $(SRC_DIR)/clock.c -o $(OUTPUT_PATH)/clock.o
+
+$(OUTPUT_PATH)/uart.o: $(SRC_DIR)/uart.c
+	@echo "compile $(SRC_DIR)/uart.c file"
+	$(CC) $(CC_OPT) $(SRC_DIR)/uart.c -o $(OUTPUT_PATH)/uart.o
 
 $(OUTPUT_PATH)/startup_ARMCM0.o: $(SRC_DIR)/startup_ARMCM0.S
-	@echo -e "compile $(SRC_DIR)/startup_ARMCM0.S file\n"
+	@echo -e "compile $(SRC_DIR)/startup_ARMCM0.S file"
 	$(ASM) $(ASM_OPT) $(SRC_DIR)/startup_ARMCM0.s -o $(OUTPUT_PATH)/startup_ARMCM0.o
 
 	
 
 build: $(FILE_TO_LINK) $(LINKER_FILE)
-	@echo -e "link object files to create new binary image ($(PROJ_NAME).elf)\n"
+	@echo -e "link object files to create new binary image ($(PROJ_NAME).elf)"
 	$(LD) $(LD_OPT) -o $(OUTPUT_PATH)/$(PROJ_NAME).elf
 
 hex: $(OUTPUT_PATH)/$(PROJ_NAME).elf
