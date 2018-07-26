@@ -1,2 +1,1 @@
-Code GPIO output. Bat tat led LD3 chân PC9
-Bai dau tien :)
+STM32F030R8T6 MCU
