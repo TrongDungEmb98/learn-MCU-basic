@@ -1,9 +1,4 @@
 
-Allocating common symbols
-Common symbol       size              file
-
-command             0x5               ./output/nvic.o
-
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -14,7 +9,7 @@ RAM              0x20000000         0x00001000         xrw
 Linker script and memory map
 
 
-.text           0x08000000      0x6ec
+.text           0x08000000      0x6fc
  *(.vectors)
  .vectors       0x08000000       0xc0 ./output/startup_ARMCM0.o
                 0x08000000                __Vectors
@@ -22,55 +17,55 @@ Linker script and memory map
                 0x000000c0                __Vectors_Size = (__Vectors_End - __Vectors)
                 0x080000c0                __end__ = .
  *(.text*)
- .text          0x080000c0       0x88 ./output/main.o
+ .text          0x080000c0       0x74 ./output/main.o
                 0x080000c0                delay
                 0x08000100                main
- .text          0x08000148        0x4 ./output/startup_ARMCM0.o
-                0x08000148                Reset_Handler
- .text          0x0800014c      0x150 ./output/gpio.o
-                0x0800014c                Init_Pin
-                0x08000228                led_on
-                0x08000260                led_off
- .text          0x0800029c      0x1e8 ./output/nvic.o
-                0x0800029c                Reserved_IRQHandler
-                0x080002a2                NMI_Handler
-                0x080002a8                HardFault_Handler
-                0x080002ae                SVC_Handler
-                0x080002b4                PendSV_Handler
-                0x080002ba                SysTick_Handler
-                0x080002c0                EXTI0_IRQHandler
-                0x08000328                USART1_IRQHandler
-                0x080003a0                inti_interrupt
- .text          0x08000484      0x134 ./output/clock.o
-                0x08000484                SystemInit
-                0x08000548                clock_enable
- .text          0x080005b8      0x128 ./output/uart.o
-                0x080005b8                init_uart
-                0x08000664                uart_send_byte
-                0x080006b0                uart_send_string
+ .text          0x08000134        0x4 ./output/startup_ARMCM0.o
+                0x08000134                Reset_Handler
+ .text          0x08000138      0x11c ./output/gpio.o
+                0x08000138                Init_Pin
+                0x08000214                led_on
+                0x08000232                led_off
+ .text          0x08000254      0x234 ./output/nvic.o
+                0x08000254                Reserved_IRQHandler
+                0x0800025a                NMI_Handler
+                0x08000260                HardFault_Handler
+                0x08000266                SVC_Handler
+                0x0800026c                PendSV_Handler
+                0x08000272                SysTick_Handler
+                0x08000278                EXTI0_IRQHandler
+                0x080002e0                USART1_IRQHandler
+                0x080003a4                inti_interrupt
+ .text          0x08000488      0x13c ./output/clock.o
+                0x08000488                SystemInit
+                0x08000554                clock_enable
+ .text          0x080005c4      0x12c ./output/uart.o
+                0x080005c4                init_uart
+                0x08000674                uart_send_byte
+                0x080006c0                uart_send_string
  *(.init)
  *(.fini)
  *(.rodata*)
- .rodata        0x080006e0        0xc ./output/main.o
+ .rodata        0x080006f0        0xc ./output/main.o
  *(.eh_frame*)
 
-.glue_7         0x080006ec        0x0
- .glue_7        0x080006ec        0x0 linker stubs
+.glue_7         0x080006fc        0x0
+ .glue_7        0x080006fc        0x0 linker stubs
 
-.glue_7t        0x080006ec        0x0
- .glue_7t       0x080006ec        0x0 linker stubs
+.glue_7t        0x080006fc        0x0
+ .glue_7t       0x080006fc        0x0 linker stubs
 
-.vfp11_veneer   0x080006ec        0x0
- .vfp11_veneer  0x080006ec        0x0 linker stubs
+.vfp11_veneer   0x080006fc        0x0
+ .vfp11_veneer  0x080006fc        0x0 linker stubs
 
-.v4_bx          0x080006ec        0x0
- .v4_bx         0x080006ec        0x0 linker stubs
+.v4_bx          0x080006fc        0x0
+ .v4_bx         0x080006fc        0x0 linker stubs
 
-.iplt           0x080006ec        0x0
- .iplt          0x080006ec        0x0 ./output/main.o
+.iplt           0x080006fc        0x0
+ .iplt          0x080006fc        0x0 ./output/main.o
 
-.rel.dyn        0x080006ec        0x0
- .rel.iplt      0x080006ec        0x0 ./output/main.o
+.rel.dyn        0x080006fc        0x0
+ .rel.iplt      0x080006fc        0x0 ./output/main.o
 
 .data           0x20000000        0x0
                 0x20000000                __data_start__ = .
@@ -87,26 +82,23 @@ Linker script and memory map
 .igot.plt       0x20000000        0x0
  .igot.plt      0x20000000        0x0 ./output/main.o
 
-.bss            0x20000000       0x10
+.bss            0x20000000        0xc
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __bss_start__ = .
  *(.bss*)
  .bss           0x20000000        0x0 ./output/main.o
  .bss           0x20000000        0x0 ./output/startup_ARMCM0.o
  .bss           0x20000000        0x0 ./output/gpio.o
- .bss           0x20000000        0x6 ./output/nvic.o
-                0x20000000                led_state
-                0x20000004                rx_data
-                0x20000005                num_char
- .bss           0x20000006        0x0 ./output/clock.o
- .bss           0x20000006        0x0 ./output/uart.o
+ .bss           0x20000000        0x9 ./output/nvic.o
+                0x20000000                led_state3
+                0x20000004                led_state4
+                0x20000008                rx_data
+ .bss           0x20000009        0x0 ./output/clock.o
+ .bss           0x20000009        0x0 ./output/uart.o
  *(COMMON)
- *fill*         0x20000006        0x2 
- COMMON         0x20000008        0x5 ./output/nvic.o
-                0x20000008                command
-                0x20000010                . = ALIGN (0x4)
- *fill*         0x2000000d        0x3 
-                0x20000010                __bss_end__ = .
+                0x2000000c                . = ALIGN (0x4)
+ *fill*         0x20000009        0x3 
+                0x2000000c                __bss_end__ = .
 
 .heap           0x20000010      0x200
                 0x20000010                __HeapBase = .
@@ -131,19 +123,19 @@ LOAD ./output/clock.o
 LOAD ./output/uart.o
 OUTPUT(./output/stm32f030r8t6_uart.elf elf32-littlearm)
 
-.debug_info     0x00000000      0x52f
- .debug_info    0x00000000       0xc1 ./output/main.o
- .debug_info    0x000000c1      0x11b ./output/gpio.o
- .debug_info    0x000001dc      0x185 ./output/nvic.o
- .debug_info    0x00000361       0xc5 ./output/clock.o
- .debug_info    0x00000426      0x109 ./output/uart.o
+.debug_info     0x00000000      0x4a1
+ .debug_info    0x00000000       0xb1 ./output/main.o
+ .debug_info    0x000000b1       0xef ./output/gpio.o
+ .debug_info    0x000001a0      0x15e ./output/nvic.o
+ .debug_info    0x000002fe       0xaa ./output/clock.o
+ .debug_info    0x000003a8       0xf9 ./output/uart.o
 
-.debug_abbrev   0x00000000      0x35d
- .debug_abbrev  0x00000000       0x97 ./output/main.o
- .debug_abbrev  0x00000097       0xaf ./output/gpio.o
- .debug_abbrev  0x00000146       0xc2 ./output/nvic.o
- .debug_abbrev  0x00000208       0x97 ./output/clock.o
- .debug_abbrev  0x0000029f       0xbe ./output/uart.o
+.debug_abbrev   0x00000000      0x2f0
+ .debug_abbrev  0x00000000       0x85 ./output/main.o
+ .debug_abbrev  0x00000085       0x9d ./output/gpio.o
+ .debug_abbrev  0x00000122       0xaa ./output/nvic.o
+ .debug_abbrev  0x000001cc       0x78 ./output/clock.o
+ .debug_abbrev  0x00000244       0xac ./output/uart.o
 
 .debug_aranges  0x00000000       0xa0
  .debug_aranges
@@ -157,24 +149,24 @@ OUTPUT(./output/stm32f030r8t6_uart.elf elf32-littlearm)
  .debug_aranges
                 0x00000080       0x20 ./output/uart.o
 
-.debug_line     0x00000000      0x26a
- .debug_line    0x00000000       0x75 ./output/main.o
- .debug_line    0x00000075       0x69 ./output/gpio.o
- .debug_line    0x000000de       0xa1 ./output/nvic.o
- .debug_line    0x0000017f       0x82 ./output/clock.o
- .debug_line    0x00000201       0x69 ./output/uart.o
+.debug_line     0x00000000      0x263
+ .debug_line    0x00000000       0x80 ./output/main.o
+ .debug_line    0x00000080       0x65 ./output/gpio.o
+ .debug_line    0x000000e5       0xa7 ./output/nvic.o
+ .debug_line    0x0000018c       0x6d ./output/clock.o
+ .debug_line    0x000001f9       0x6a ./output/uart.o
 
-.debug_str      0x00000000      0x246
- .debug_str     0x00000000       0xf8 ./output/main.o
-                                0x105 (size before relaxing)
- .debug_str     0x000000f8       0x37 ./output/gpio.o
-                                0x11c (size before relaxing)
- .debug_str     0x0000012f       0xab ./output/nvic.o
-                                0x198 (size before relaxing)
- .debug_str     0x000001da       0x35 ./output/clock.o
-                                0x122 (size before relaxing)
- .debug_str     0x0000020f       0x37 ./output/uart.o
-                                0x130 (size before relaxing)
+.debug_str      0x00000000      0x241
+ .debug_str     0x00000000       0xfd ./output/main.o
+                                0x10a (size before relaxing)
+ .debug_str     0x000000fd       0x37 ./output/gpio.o
+                                0x121 (size before relaxing)
+ .debug_str     0x00000134       0xa1 ./output/nvic.o
+                                0x193 (size before relaxing)
+ .debug_str     0x000001d5       0x2f ./output/clock.o
+                                0x121 (size before relaxing)
+ .debug_str     0x00000204       0x3d ./output/uart.o
+                                0x135 (size before relaxing)
 
 .comment        0x00000000       0x7f
  .comment       0x00000000       0x7f ./output/main.o

@@ -39,7 +39,6 @@ void Init_Pin(void)
     tempreg |= (AF1 << 8);
     write_reg(GPIO_AFRH(PORT_A), tempreg);
 
-
     /* PA9 - Tx */
     tempreg = read_reg(GPIO_MODER(PORT_A), ~(0x03 << 18));
     tempreg |= (GPIO_ALTERNATE_MODE << 18);
@@ -53,31 +52,10 @@ void Init_Pin(void)
 
 void led_on(unsigned int led, const unsigned int registers)
 {
-	unsigned int tempreg;
-	/* read all bits of GPIOC_BSRR register without bit "led" */
-	tempreg = read_reg(registers,~(1u << led));
-	/* set bit "led" of GPIOC_BSRR register */
-	tempreg |= (1u << led);
-	write_reg(registers,tempreg);
-	
-	/*another way to turn on led*/
-	/*
-	write_reg(GPIOC_BSRR, 1u << led );
-	*/
+	write_reg(registers, 1u << led );
 }
 
 void led_off(unsigned int led, const unsigned int registers)
 {
-	unsigned int tempreg;
-	/* read all bits of GPIOC_BSRR register without bit "led" */
-	tempreg = read_reg(registers,~(1u << led));
-	/* clear bit "led" of GPIOC_BSRR register */
-	tempreg |= (1u << (led + 16u) );
-	write_reg(registers,tempreg);
-	
-	/*another way to turn off led*/
-	/*
-	write_reg(GPIOC_BSRR,1u << (led+16u) );
-	
-	*/
+	write_reg(registers,1u << (led+16u) );
 }

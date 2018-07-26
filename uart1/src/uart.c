@@ -4,7 +4,8 @@
 void init_uart(void)
 {
 	unsigned int temp_reg;
-	
+
+	write_reg(USART_CR1,0x0u);
 	/* UE = 0 */
 	temp_reg = read_reg(USART_CR1,~(1u << 0));
 	temp_reg |= (0 << 0);
@@ -26,8 +27,8 @@ void init_uart(void)
 	temp_reg |= (0 << 15);
 	
 	/* set Baudrate = 9600, Fck = 8MHz */
-	write_reg(USART_BRR, 0x0341u);
-	
+	write_reg(USART_BRR, 0x341u);
+		
 	/* enable UART UE = 1 */
 	temp_reg = read_reg(USART_CR1,~(1u << 0));
 	temp_reg |= (1 << 0);
@@ -42,12 +43,16 @@ void init_uart(void)
 	temp_reg = read_reg(USART_CR1,~(0x1u << 2));
 	temp_reg |= (1u << 2);
 	write_reg(USART_CR1, temp_reg);
+	
 }
 
 char uart_send_byte(unsigned char c)
 {
 	char state = 0;
-	unsigned int temp_reg = read_reg(USART_ISR,(1<<7));
+	
+	// kiem tra TX buffer đã sẵn sàng nhận data mới chưa
+	unsigned int temp_reg = read_reg(USART_ISR,(0x1 << 7));
+	
 	if(0 != temp_reg)
 	{
 		write_reg(USART_TDR,(unsigned int) c);
@@ -56,9 +61,9 @@ char uart_send_byte(unsigned char c)
 	}
 	return state;
 }
-
 void uart_send_string(unsigned char* str)
 {
+// Neu truyen thanh cong byte truoc do thi truyen byte tiep theo, neu khong thi truyen lai.
 	while(*str)
 	{
 		if( uart_send_byte(*str) == 0 )

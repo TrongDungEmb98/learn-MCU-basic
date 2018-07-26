@@ -1,10 +1,9 @@
 #include "stm32lib.h"
 
 /***************************************************************************************/
-volatile unsigned int led_state = 0;
+volatile unsigned int led_state3 = 0;
+volatile unsigned int led_state4 = 0;
 volatile unsigned char rx_data = 0;
-volatile unsigned char command[5];
-volatile unsigned char num_char = 0; 
 /***************************************************************************************/
 void Reserved_IRQHandler(void)
 {
@@ -60,12 +59,12 @@ void EXTI0_IRQHandler(void)
   
   temp = read_reg(EXTI_PR,(1 << 0));
   if(temp == 1){
-	  if(led_state == 0){
+	  if(led_state3 == 0){
 		  led_on(LD3_PIN,GPIO_BSRR(PORT_C));
-		  led_state = 1;
+		  led_state3 = 1;
 	  }else{
 		  led_off(LD3_PIN,GPIO_BSRR(PORT_C));
-		  led_state = 0;
+		  led_state3 = 0;
 	  }
   }
   /* Clear pending */
@@ -79,28 +78,43 @@ void USART1_IRQHandler(void)
 {
     volatile unsigned int temp;
     
-    temp = read_reg(USART_ISR, 1 << 6);
-    if (0 != temp) /* Tx - TC flag */
+    temp = read_reg(USART_ISR, 1 << 6);		/* Tx - TC flag */
+    if (0 != temp) 
     {
-        write_reg(USART_ICR, (1<<6));		// xóa cờ ngắt TC trong ISR
+		/* DEBUG  LED */
+		if(led_state3 == 0){
+		  led_on(LD3_PIN,GPIO_BSRR(PORT_C));
+		  led_state3 = 1;
+		}else{
+		  led_off(LD3_PIN,GPIO_BSRR(PORT_C));
+		  led_state3 = 0;
+		}
+		write_reg(USART_ICR, (1<<6));		// xóa cờ ngắt TC trong ISR
     }
-    temp = read_reg(USART_ISR, 1 << 5);
-    if (0 != temp)  /* Rx - RXNE flag */
+	
+    temp = read_reg(USART_ISR, 1 << 5);		 /* Rx - RXNE flag */
+    if (0 != temp) 
     {
-        rx_data = read_reg(USART_RDR, 0x000000FFu);
+		/* DEBUG  LED */
+		if(led_state4 == 0){
+		  led_on(LD4_PIN,GPIO_BSRR(PORT_C));
+		  led_state4 = 1;
+		}else{
+		  led_off(LD4_PIN,GPIO_BSRR(PORT_C));
+		  led_state4 = 0;
+		}			
+        
+		rx_data = read_reg(USART_RDR, 0x000000FFu);
         write_reg(USART_RQR, (1<<3)); /* ghi giá trị 1 tới USART_RQR[RXFRQ] để xóa cờ USART_ISR[RXNE] */
+		uart_send_byte(rx_data);
     }
-		temp = read_reg(USART_ISR, 1 << 2);
-		write_reg(USART_ICR, (1<<2));
-		temp = read_reg(USART_ISR, 1 << 4);
-		write_reg(USART_ICR, (1<<4));
 }
 /**************************************************************************************************/
 
 void inti_interrupt(void)
 {
 	unsigned int tempreg;
-	/* EXTI */
+/** ================================= EXTI ====================================== **/
 	tempreg = read_reg(EXTI_IMR,~(1<<0));
 	tempreg |= (1<<0);
 	write_reg(EXTI_IMR,tempreg);
@@ -135,7 +149,7 @@ void inti_interrupt(void)
     write_reg(USART_CR1, tempreg);
     
     /* enable uart1 interrupt in NVIC */
-    tempreg = read_reg(NVIC_ISER, ~(1 << 27));
+      tempreg = read_reg(NVIC_ISER, ~(1 << 27));
     tempreg |= 1 << 27;
     write_reg(NVIC_ISER, tempreg);
 

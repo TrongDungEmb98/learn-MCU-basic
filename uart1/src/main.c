@@ -16,18 +16,14 @@ void main(void)
 {	
 	SystemInit();
 	clock_enable();
-	init_uart();
-	Init_Pin();
-	inti_interrupt();
+    Init_Pin();
+    init_uart();
 
-	uart_send_string("Hello World");
-	
+    inti_interrupt();
+	uart_send_string("hello world");
 	while(1)
 	{
-		if(rx_data != 0)
-		{
-			uart_send_byte(rx_data);
-		}
-		rx_data = 0;
+		delay(0x5F);
+		uart_send_byte(0x55);
 	}
 }

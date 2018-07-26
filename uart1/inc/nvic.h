@@ -3,9 +3,10 @@
 
 #include "hw_stm32f030r8t6.h"
 
-extern volatile unsigned char rx_data;
-extern volatile unsigned char command[5];
-extern volatile unsigned char num_char; 
+extern volatile unsigned char rx_data; 
+extern volatile unsigned int led_state3;
+extern volatile unsigned int led_state4;
+
 
 void Reserved_IRQHandler(void);
 void NMI_Handler(void);
