@@ -4,7 +4,6 @@
 void init_uart(void)
 {
 	unsigned int temp_reg;
-	
 	/* UE = 0 */
 	temp_reg = read_reg(USART_CR1,~(1u << 0));
 	temp_reg |= (0 << 0);
@@ -26,21 +25,21 @@ void init_uart(void)
 	temp_reg |= (0 << 15);
 	
 	/* set Baudrate = 9600, Fck = 8MHz */
-	write_reg(USART_BRR, 0x0341u);
+	write_reg( USART_BRR, 0x341u );
 	
 	/* enable UART UE = 1 */
-	temp_reg = read_reg(USART_CR1,~(1u << 0));
+	temp_reg = read_reg(USART_CR1,~(1 << 0));
 	temp_reg |= (1 << 0);
 	write_reg(USART_CR1, temp_reg);
 	
 	/* Enable TE */
-	temp_reg = read_reg(USART_CR1,~(0x1u << 3));
+	temp_reg = read_reg(USART_CR1,~(0x1 << 3));
 	temp_reg |= (1u << 3);
 	write_reg(USART_CR1, temp_reg);
 	
 	/* Enable RE */
-	temp_reg = read_reg(USART_CR1,~(0x1u << 2));
-	temp_reg |= (1u << 2);
+	temp_reg = read_reg(USART_CR1,~(0x1 << 2));
+	temp_reg |= (1 << 2);
 	write_reg(USART_CR1, temp_reg);
 }
 

@@ -1,5 +1,5 @@
 #include "stm32lib.h"
-#include "string.h"
+
 
 
 void delay(unsigned int timeout)
@@ -18,19 +18,15 @@ void main(void)
 {	
 	SystemInit();
 	clock_enable();
-	init_uart();
 	Init_Pin();
-	inti_interrupt();
 
-	uart_send_string("Hello World");
-	
+	init_systick();
 	while(1)
 	{
-		
-		led_on(LD4_PIN,(GPIO_BSRR(PORT_C)));
-		delay(0xff);
-		led_off(LD4_PIN,(GPIO_BSRR(PORT_C)));
-		delay(0xff);
+		led_on(LD3_PIN, GPIO_BSRR(PORT_C));
+		delay_timer_ms(1000); /* 500 ms*/
+		led_off(LD3_PIN, GPIO_BSRR(PORT_C));
+		delay_timer_ms(1000); /* 500 ms*/
 		
 	}
 }

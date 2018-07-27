@@ -16,7 +16,8 @@ OBJCPY			:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-objcopy
 ASM				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-as
 LD				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-ld
 
-FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/nvic.o $(OUTPUT_PATH)/clock.o $(OUTPUT_PATH)/uart.o	 
+FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/nvic.o \
+$(OUTPUT_PATH)/clock.o $(OUTPUT_PATH)/uart.o $(OUTPUT_PATH)/systick.o 
 
 CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -O0 -g -w -Wall -mthumb -I$(INC_DIR)
 ASM_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -mthumb
@@ -41,6 +42,10 @@ $(OUTPUT_PATH)/clock.o: $(SRC_DIR)/clock.c
 $(OUTPUT_PATH)/uart.o: $(SRC_DIR)/uart.c
 	@echo "compile $(SRC_DIR)/uart.c file"
 	$(CC) $(CC_OPT) $(SRC_DIR)/uart.c -o $(OUTPUT_PATH)/uart.o
+	
+$(OUTPUT_PATH)/systick.o: $(SRC_DIR)/systick.c
+	@echo "compile $(SRC_DIR)/uart.c file"
+	$(CC) $(CC_OPT) $(SRC_DIR)/systick.c -o $(OUTPUT_PATH)/systick.o
 
 $(OUTPUT_PATH)/startup_ARMCM0.o: $(SRC_DIR)/startup_ARMCM0.S
 	@echo -e "compile $(SRC_DIR)/startup_ARMCM0.S file"

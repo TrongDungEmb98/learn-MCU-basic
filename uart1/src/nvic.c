@@ -83,11 +83,11 @@ void USART1_IRQHandler(void)
     {
 		/* DEBUG  LED */
 		if(led_state3 == 0){
-		  led_on(LD3_PIN,GPIO_BSRR(PORT_C));
-		  led_state3 = 1;
+			led_on(LD3_PIN,GPIO_BSRR(PORT_C));
+			led_state3 = 1;
 		}else{
-		  led_off(LD3_PIN,GPIO_BSRR(PORT_C));
-		  led_state3 = 0;
+			led_off(LD3_PIN,GPIO_BSRR(PORT_C));
+			led_state3 = 0;
 		}
 		write_reg(USART_ICR, (1<<6));		// xóa cờ ngắt TC trong ISR
     }
@@ -97,15 +97,15 @@ void USART1_IRQHandler(void)
     {
 		/* DEBUG  LED */
 		if(led_state4 == 0){
-		  led_on(LD4_PIN,GPIO_BSRR(PORT_C));
-		  led_state4 = 1;
+			led_on(LD4_PIN,GPIO_BSRR(PORT_C));
+			led_state4 = 1;
 		}else{
-		  led_off(LD4_PIN,GPIO_BSRR(PORT_C));
-		  led_state4 = 0;
+			led_off(LD4_PIN,GPIO_BSRR(PORT_C));
+			led_state4 = 0;
 		}			
         
 		rx_data = read_reg(USART_RDR, 0x000000FFu);
-        write_reg(USART_RQR, (1<<3)); /* ghi giá trị 1 tới USART_RQR[RXFRQ] để xóa cờ USART_ISR[RXNE] */
+		write_reg(USART_RQR, (1<<3)); /* ghi giá trị 1 tới USART_RQR[RXFRQ] để xóa cờ USART_ISR[RXNE] */
 		uart_send_byte(rx_data);
     }
 }

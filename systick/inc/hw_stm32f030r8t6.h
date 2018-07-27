@@ -124,6 +124,12 @@ typedef unsigned char           u8_t;
 #define USART_ICR				(BASE_ADDR_UART1 + 0x20u)
 #define USART_RDR				(BASE_ADDR_UART1 + 0x24u)
 #define USART_TDR				(BASE_ADDR_UART1 + 0x28u)
+/*===================== SYSTICK ==============================*/
+#define SYST_CSR				0xE000E010u
+#define SYST_RVR				0xE000E014u
+#define SYST_CVR				0xE000E018u
+#define SYST_CALIB				0xE000E01Cu
+
 
 
 /* Led: LD3 - PC9       */
