@@ -1,6 +1,5 @@
 #include "stm32lib.h"
 
-
 /* Init Pin PC9 and PC8 */
 void Init_Pin(void)
 {

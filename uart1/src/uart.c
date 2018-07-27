@@ -86,6 +86,3 @@ void uart_send_string(unsigned char* str)
 
 
 
-
-
-

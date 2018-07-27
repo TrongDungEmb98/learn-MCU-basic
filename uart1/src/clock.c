@@ -1,6 +1,5 @@
 #include "stm32lib.h"
 
-
 /**
   * @brief  Setup the microcontroller system.
   *         Initialize the default HSI clock source, vector table location and the PLL configuration is reset.
