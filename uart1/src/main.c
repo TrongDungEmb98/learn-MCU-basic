@@ -19,12 +19,10 @@ void main(void)
 	clock_enable();
     Init_Pin();
     init_uart();
-
     inti_interrupt();
+
 	uart_send_string("hello world");
 	while(1)
 	{
-		delay(0x5F);
-		uart_send_byte(0x55);
 	}
 }
