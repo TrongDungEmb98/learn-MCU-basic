@@ -45,8 +45,10 @@ OBJECT_FILE		:= $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $(notdir $(B
 DEPS 			:= $(OBJECT_FILE:.o=.d)
 
 CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -g -mthumb -w -Wall $(INC_DIR) -DCLI_STAND_ALONE
-ASM_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -mthumb --defsym __STARTUP_CLEAR_BSS=1 --defsym __STACK_SIZE=0x300 --defsym __HEAP_SIZE=0x800
-LD_OPT			:= -T $(LINKER_FILE) -Map $(BUILD_DIR)/$(PROJ_NAME).map $(OBJECT_FILE) -L $(COMPILER_DIR)/arm-none-eabi/lib/thumb/v6-m -lc_nano -lnosys
+ASM_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -mthumb \
+                    --defsym __STARTUP_CLEAR_BSS=1 --defsym __STACK_SIZE=0x300 --defsym __HEAP_SIZE=0x800
+LD_OPT			:= -T $(LINKER_FILE) -Map $(BUILD_DIR)/$(PROJ_NAME).map \
+                    $(OBJECT_FILE) -L $(COMPILER_DIR)/arm-none-eabi/lib/thumb/v6-m -lc_nano -lnosys
 
 .PHONY: all
 
