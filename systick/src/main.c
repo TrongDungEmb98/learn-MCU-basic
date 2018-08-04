@@ -24,9 +24,9 @@ void main(void)
 	while(1)
 	{
 		led_on(LD3_PIN, GPIO_BSRR(PORT_C));
-		delay_timer_ms(1000); /* 500 ms*/
+		delay_timer_ms(500); /* 500 ms*/
 		led_off(LD3_PIN, GPIO_BSRR(PORT_C));
-		delay_timer_ms(1000); /* 500 ms*/
+		delay_timer_ms(500); /* 500 ms*/
 		
 	}
 }

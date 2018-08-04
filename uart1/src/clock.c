@@ -1,4 +1,4 @@
-#include "stm32lib.h"
+#include "clock.h"
 
 /**
   * @brief  Setup the microcontroller system.

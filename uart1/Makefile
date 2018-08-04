@@ -16,13 +16,14 @@ OBJCPY			:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-objcopy
 ASM				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-as
 LD				:= $(COMPILER_DIR)/bin/$(PREFIX_GCC_COMPILER)-ld
 
-FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/nvic.o $(OUTPUT_PATH)/clock.o $(OUTPUT_PATH)/uart.o	 
+FILE_TO_LINK	:= $(OUTPUT_PATH)/main.o $(OUTPUT_PATH)/startup_ARMCM0.o $(OUTPUT_PATH)/gpio.o $(OUTPUT_PATH)/interrupt.o $(OUTPUT_PATH)/clock.o $(OUTPUT_PATH)/uart.o	 
 
 #CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -g -mthumb -w -Wall -I$(INC_DIR) -DCLI_STAND_ALONE
 CC_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -O0 -g -w -Wall -mthumb -I$(INC_DIR)
 ASM_OPT			:= -march=armv6-m -mcpu=cortex-m0 -c -mthumb
 LD_OPT			:= -T $(LINKER_FILE) -Map $(OUTPUT_PATH)/$(PROJ_NAME).map $(FILE_TO_LINK)
 #LD_OPT			:= -T $(LINKER_FILE) -Map $(BUILD_DIR)/$(PROJ_NAME).map $(OBJECT_FILE) -L $(COMPILER_DIR)/arm-none-eabi/lib/thumb/v6-m -lc_nano -lnosys
+
 $(OUTPUT_PATH)/main.o: $(SRC_DIR)/main.c
 	@echo "compile $(SRC_DIR)/main.c file"
 	$(CC) $(CC_OPT) $(SRC_DIR)/main.c -o $(OUTPUT_PATH)/main.o
@@ -31,9 +32,9 @@ $(OUTPUT_PATH)/gpio.o: $(SRC_DIR)/gpio.c
 	@echo "compile $(SRC_DIR)/gpio.c file"
 	$(CC) $(CC_OPT) $(SRC_DIR)/gpio.c -o $(OUTPUT_PATH)/gpio.o
 
-$(OUTPUT_PATH)/nvic.o: $(SRC_DIR)/nvic.c
-	@echo "compile $(SRC_DIR)/nvic.c file"
-	$(CC) $(CC_OPT) $(SRC_DIR)/nvic.c -o $(OUTPUT_PATH)/nvic.o
+$(OUTPUT_PATH)/interrupt.o: $(SRC_DIR)/interrupt.c
+	@echo "compile $(SRC_DIR)/interrupt.c file"
+	$(CC) $(CC_OPT) $(SRC_DIR)/interrupt.c -o $(OUTPUT_PATH)/interrupt.o
 	
 $(OUTPUT_PATH)/clock.o: $(SRC_DIR)/clock.c
 	@echo "compile $(SRC_DIR)/clock.c file"

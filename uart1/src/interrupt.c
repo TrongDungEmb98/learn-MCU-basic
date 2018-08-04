@@ -1,9 +1,14 @@
-#include "stm32lib.h"
+#include "interrupt.h"
+#include "gpio.h"
+#include "uart.h"
 
 /***************************************************************************************/
 volatile unsigned int led_state3 = 0;
 volatile unsigned int led_state4 = 0;
 volatile unsigned char rx_data = 0;
+
+volatile unsigned char command[100];
+volatile unsigned int num_char = 0;
 /***************************************************************************************/
 void Reserved_IRQHandler(void)
 {
@@ -23,7 +28,8 @@ void NMI_Handler(void)
 
 void HardFault_Handler(void)
 {
-  while(1)
+	uart_send_string("hard fault\n\r");
+  while(0)
   {
     /* nothing to be run here */
   }
@@ -81,32 +87,16 @@ void USART1_IRQHandler(void)
     temp = read_reg(USART_ISR, 1 << 6);		/* Tx - TC flag */
     if (0 != temp) 
     {
-		/* DEBUG  LED */
-		if(led_state3 == 0){
-			led_on(LD3_PIN,GPIO_BSRR(PORT_C));
-			led_state3 = 1;
-		}else{
-			led_off(LD3_PIN,GPIO_BSRR(PORT_C));
-			led_state3 = 0;
-		}
 		write_reg(USART_ICR, (1<<6));		// xóa cờ ngắt TC trong ISR
     }
 	
     temp = read_reg(USART_ISR, 1 << 5);		 /* Rx - RXNE flag */
     if (0 != temp) 
-    {
-		/* DEBUG  LED */
-		if(led_state4 == 0){
-			led_on(LD4_PIN,GPIO_BSRR(PORT_C));
-			led_state4 = 1;
-		}else{
-			led_off(LD4_PIN,GPIO_BSRR(PORT_C));
-			led_state4 = 0;
-		}			
-        
+    {		  
 		rx_data = read_reg(USART_RDR, 0x000000FFu);
 		write_reg(USART_RQR, (1<<3)); /* ghi giá trị 1 tới USART_RQR[RXFRQ] để xóa cờ USART_ISR[RXNE] */
 		uart_send_byte(rx_data);
+		uart_send_string("\n\r");
     }
 }
 /**************************************************************************************************/

@@ -17,12 +17,26 @@ void main(void)
 {	
 	SystemInit();
 	clock_enable();
-    Init_Pin();
-    init_uart();
-    inti_interrupt();
+	Init_Pin();
+	init_uart();
+	inti_interrupt();
+	rx_data = 0;
 
-	uart_send_string("hello world");
+	uart_send_string("hello world\n\r");
 	while(1)
 	{
+		if(rx_data != 0)
+		{
+			if(rx_data == 13)
+			{
+				uart_send_string("13 = \n\r");
+			}else{
+				//command[num_char] = rx_data;
+				uart_send_string(command);
+				uart_send_string("\n\r");
+				
+			}
+			rx_data = 0;
+		}
 	}
 }

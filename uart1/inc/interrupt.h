@@ -7,6 +7,9 @@ extern volatile unsigned char rx_data;
 extern volatile unsigned int led_state3;
 extern volatile unsigned int led_state4;
 
+extern volatile unsigned char command[100];
+extern volatile unsigned int num_char;
+
 
 void Reserved_IRQHandler(void);
 void NMI_Handler(void);

@@ -9,49 +9,6 @@ typedef unsigned short          u16_t;
 typedef unsigned char           u8_t;
 
 
-/*======================== GPIO =================================*/
-#define BASE_ADDR_GPIO					0x48000000u
-
-/*          address register = base address gpio port + offset					   */
-/*    base address gpio port = [ base address gpio port A + (400 * port) ]         */
-#define GPIO_MODER(port)				(BASE_ADDR_GPIO + (0x400u * (port)) + 0x00u)
-#define GPIO_OTYPER(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x04u)
-#define GPIO_OSPEEDR(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x08u)
-#define GPIO_PUPDR(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x0Cu)
-#define GPIO_IDR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x10u)
-#define GPIO_ODR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x14u)
-#define GPIO_BSRR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x18u)
-#define GPIO_LCKR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x1Cu)
-#define GPIO_AFRL(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x20u)
-#define GPIO_AFRH(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x24u)
-#define GPIO_BRR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x28u)
-
-/* definition port id */
-#define PORT_A                  0u
-#define PORT_B                  1u
-#define PORT_C                  2u
-#define PORT_D                  3u
-#define PORT_E                  4u
-#define PORT_F                  5u
-
-
-/* GPIO MODEs */
-#define GPIO_INPUT_MODE			0x00u
-#define GPIO_OUTPUT_MODE		0x01u
-#define GPIO_ALTERNATE_MODE		0x02u
-#define GPIO_ANLALOG_MODE		0x03u
-
-/* alternate */
-#define AF0                     0x0
-#define AF1                     0x1
-#define AF2                     0x2
-#define AF3                     0x3
-#define AF4                     0x4
-#define AF5                     0x5
-#define AF6                     0x6
-#define AF7                     0x7
-
-
 /*================== RCC - clocks ==============================*/
 #define BASE_ADDR_RCC			0x40021000u
 
@@ -95,6 +52,48 @@ typedef unsigned char           u8_t;
 #define APB1_HCLK_8             6u
 #define APB1_HCLK_16            7u
 
+/*======================== GPIO =================================*/
+#define BASE_ADDR_GPIO					0x48000000u
+
+/*          address register = base address gpio port + offset					   */
+/*    base address gpio port = [ base address gpio port A + (400 * port) ]         */
+#define GPIO_MODER(port)				(BASE_ADDR_GPIO + (0x400u * (port)) + 0x00u)
+#define GPIO_OTYPER(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x04u)
+#define GPIO_OSPEEDR(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x08u)
+#define GPIO_PUPDR(port)				(BASE_ADDR_GPIO + (0x400u * (port)) +0x0Cu)
+#define GPIO_IDR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x10u)
+#define GPIO_ODR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x14u)
+#define GPIO_BSRR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x18u)
+#define GPIO_LCKR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x1Cu)
+#define GPIO_AFRL(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x20u)
+#define GPIO_AFRH(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x24u)
+#define GPIO_BRR(port)					(BASE_ADDR_GPIO + (0x400u * (port)) +0x28u)
+
+/* definition port id */
+#define PORT_A                  0u
+#define PORT_B                  1u
+#define PORT_C                  2u
+#define PORT_D                  3u
+#define PORT_E                  4u
+#define PORT_F                  5u
+
+
+/* GPIO MODEs */
+#define GPIO_INPUT_MODE			0x00u
+#define GPIO_OUTPUT_MODE		0x01u
+#define GPIO_ALTERNATE_MODE		0x02u
+#define GPIO_ANLALOG_MODE		0x03u
+
+/* alternate */
+#define AF0                     0x0
+#define AF1                     0x1
+#define AF2                     0x2
+#define AF3                     0x3
+#define AF4                     0x4
+#define AF5                     0x5
+#define AF6                     0x6
+#define AF7                     0x7
+
 /*======================= EXTI =================================*/
 #define BASE_ADRR_EXTI			0x40010400u
 #define EXTI_IMR				(BASE_ADRR_EXTI + 0x00u)
@@ -113,7 +112,7 @@ typedef unsigned char           u8_t;
 #define NVIC_ICPR5				0xE000E404u			// IRQ5
 
 /*===================== UART1 ===============================*/
-#define BASE_ADDR_UART1			0x40013800
+#define BASE_ADDR_UART1			0x40013800u
 #define USART_CR1				(BASE_ADDR_UART1 + 0x00u)
 #define USART_CR2				(BASE_ADDR_UART1 + 0x04u)
 #define USART_CR3				(BASE_ADDR_UART1 + 0x08u)
