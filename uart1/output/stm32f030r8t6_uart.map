@@ -14,7 +14,7 @@ RAM              0x20000000         0x00001000         xrw
 Linker script and memory map
 
 
-.text           0x08000000      0x71f
+.text           0x08000000      0x6d3
  *(.vectors)
  .vectors       0x08000000       0xc0 ./output/startup_ARMCM0.o
                 0x08000000                __Vectors
@@ -22,57 +22,57 @@ Linker script and memory map
                 0x000000c0                __Vectors_Size = (__Vectors_End - __Vectors)
                 0x080000c0                __end__ = .
  *(.text*)
- .text          0x080000c0       0xb0 ./output/main.o
+ .text          0x080000c0       0x70 ./output/main.o
                 0x080000c0                delay
                 0x08000100                main
- .text          0x08000170        0x4 ./output/startup_ARMCM0.o
-                0x08000170                Reset_Handler
- .text          0x08000174      0x11c ./output/gpio.o
-                0x08000174                Init_Pin
-                0x08000250                led_on
-                0x0800026e                led_off
- .text          0x08000290      0x1f4 ./output/interrupt.o
-                0x08000290                Reserved_IRQHandler
-                0x08000296                NMI_Handler
-                0x0800029c                HardFault_Handler
-                0x080002b4                SVC_Handler
-                0x080002ba                PendSV_Handler
-                0x080002c0                SysTick_Handler
-                0x080002c6                EXTI0_IRQHandler
-                0x08000330                USART1_IRQHandler
-                0x080003a0                inti_interrupt
- .text          0x08000484      0x140 ./output/clock.o
-                0x08000484                SystemInit
-                0x08000554                clock_enable
- .text          0x080005c4      0x12c ./output/uart.o
-                0x080005c4                init_uart
-                0x08000674                uart_send_byte
-                0x080006c0                uart_send_string
+ .text          0x08000130        0x4 ./output/startup_ARMCM0.o
+                0x08000130                Reset_Handler
+ .text          0x08000134      0x11c ./output/gpio.o
+                0x08000134                Init_Pin
+                0x08000210                led_on
+                0x0800022e                led_off
+ .text          0x08000250      0x1f4 ./output/interrupt.o
+                0x08000250                Reserved_IRQHandler
+                0x08000256                NMI_Handler
+                0x0800025c                HardFault_Handler
+                0x08000274                SVC_Handler
+                0x0800027a                PendSV_Handler
+                0x08000280                SysTick_Handler
+                0x08000286                EXTI0_IRQHandler
+                0x080002f0                USART1_IRQHandler
+                0x08000360                inti_interrupt
+ .text          0x08000444      0x140 ./output/clock.o
+                0x08000444                SystemInit
+                0x08000514                clock_enable
+ .text          0x08000584      0x12c ./output/uart.o
+                0x08000584                init_uart
+                0x08000634                uart_send_byte
+                0x08000680                uart_send_string
  *(.init)
  *(.fini)
  *(.rodata*)
- .rodata        0x080006f0       0x1b ./output/main.o
- *fill*         0x0800070b        0x1 
- .rodata        0x0800070c       0x13 ./output/interrupt.o
+ .rodata        0x080006b0        0xe ./output/main.o
+ *fill*         0x080006be        0x2 
+ .rodata        0x080006c0       0x13 ./output/interrupt.o
  *(.eh_frame*)
 
-.glue_7         0x08000720        0x0
- .glue_7        0x08000720        0x0 linker stubs
+.glue_7         0x080006d4        0x0
+ .glue_7        0x080006d4        0x0 linker stubs
 
-.glue_7t        0x08000720        0x0
- .glue_7t       0x08000720        0x0 linker stubs
+.glue_7t        0x080006d4        0x0
+ .glue_7t       0x080006d4        0x0 linker stubs
 
-.vfp11_veneer   0x08000720        0x0
- .vfp11_veneer  0x08000720        0x0 linker stubs
+.vfp11_veneer   0x080006d4        0x0
+ .vfp11_veneer  0x080006d4        0x0 linker stubs
 
-.v4_bx          0x08000720        0x0
- .v4_bx         0x08000720        0x0 linker stubs
+.v4_bx          0x080006d4        0x0
+ .v4_bx         0x080006d4        0x0 linker stubs
 
-.iplt           0x08000720        0x0
- .iplt          0x08000720        0x0 ./output/main.o
+.iplt           0x080006d4        0x0
+ .iplt          0x080006d4        0x0 ./output/main.o
 
-.rel.dyn        0x08000720        0x0
- .rel.iplt      0x08000720        0x0 ./output/main.o
+.rel.dyn        0x080006d4        0x0
+ .rel.iplt      0x080006d4        0x0 ./output/main.o
 
 .data           0x20000000        0x0
                 0x20000000                __data_start__ = .
@@ -158,12 +158,12 @@ OUTPUT(./output/stm32f030r8t6_uart.elf elf32-littlearm)
  .debug_aranges
                 0x00000080       0x20 ./output/uart.o
 
-.debug_line     0x00000000      0x233
- .debug_line    0x00000000       0x80 ./output/main.o
- .debug_line    0x00000080       0x55 ./output/gpio.o
- .debug_line    0x000000d5       0xa7 ./output/interrupt.o
- .debug_line    0x0000017c       0x5d ./output/clock.o
- .debug_line    0x000001d9       0x5a ./output/uart.o
+.debug_line     0x00000000      0x22f
+ .debug_line    0x00000000       0x7c ./output/main.o
+ .debug_line    0x0000007c       0x55 ./output/gpio.o
+ .debug_line    0x000000d1       0xa7 ./output/interrupt.o
+ .debug_line    0x00000178       0x5d ./output/clock.o
+ .debug_line    0x000001d5       0x5a ./output/uart.o
 
 .debug_str      0x00000000      0x257
  .debug_str     0x00000000      0x10e ./output/main.o

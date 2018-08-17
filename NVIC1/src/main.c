@@ -159,7 +159,7 @@ void inti_interrupt(void)
 	write_reg(NVIC_ISER,tempreg);
 	
 	/* Enable global interrupt*/
-	asm("cpsie i");
+	//asm("cpsie i");
 	
 	/* Disable global interrupt*/
 	//asm("cpsid i");

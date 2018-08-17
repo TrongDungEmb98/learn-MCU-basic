@@ -16,7 +16,7 @@ void delay(unsigned int timeout)
 
 void main(void)
 {	
-	SystemInit();
+	system_init(PREDIV_1, PLL_MUL_12, PLL_SCR_HSI, PREDIV_1, SYSCLKSOURCE_PLLCLK, APB1_HCLK_1);
 	clock_enable();
 	Init_Pin();
 
@@ -24,9 +24,9 @@ void main(void)
 	while(1)
 	{
 		led_on(LD3_PIN, GPIO_BSRR(PORT_C));
-		delay_timer_ms(500); /* 500 ms*/
+		delay_timer_ms(1000); /* 500 ms*/
 		led_off(LD3_PIN, GPIO_BSRR(PORT_C));
-		delay_timer_ms(500); /* 500 ms*/
+		delay_timer_ms(1000); /* 500 ms*/
 		
 	}
 }

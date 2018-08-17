@@ -13,53 +13,91 @@
   *         apb1_div: hệ số chia clock cho APB1 prescaler
   * @retval None
   */
-void SystemInit(void)
+void system_init(u32_t hsi_prediv, u32_t pullmux, u32_t pllsrc, u32_t ahb_div, u32_t system_source, u32_t apb1_div)
 {
-	unsigned int temp_reg;
-   /* Reset the RCC clock configuration to the default reset state ------------*/
-  /* Set HSION bit */
-  /* RCC->CR |= (uint32_t)0x00000001U; */
-	temp_reg = read_reg(RCC_CR, ~0x00000001u );
-	temp_reg |= (1u << 0);
-	write_reg(RCC_CR, temp_reg);
-	
-  /* Reset SW[1:0], HPRE[3:0], PPRE[2:0], ADCPRE, MCOSEL[2:0], MCOPRE[2:0] and PLLNODIV bits */
-  /* RCC->CFGR &= (uint32_t)0x08FFB80CU; */
-	temp_reg = read_reg(RCC_CFGR, 0x08FFB80CU);
-	write_reg(RCC_CFGR, temp_reg);
-  
-  /* Reset HSEON, CSSON and PLLON bits */
-  /* RCC->CR &= (uint32_t)0xFEF6FFFFU; */
-	temp_reg = read_reg(RCC_CR, 0xFEF6FFFFU);
-	write_reg(RCC_CR, temp_reg);
-  
-  /* Reset HSEBYP bit */
-  /* RCC->CR &= (uint32_t)0xFFFBFFFFU; */
-	temp_reg = read_reg(RCC_CR, 0xFFFBFFFFU);
-	write_reg(RCC_CR, temp_reg);
-  
-  /* Reset PLLSRC, PLLXTPRE and PLLMUL[3:0] bits */
-  /* RCC->CFGR &= (uint32_t)0xFFC0FFFFU; */
-	temp_reg = read_reg(RCC_CFGR, 0xFFC0FFFFU);
-	write_reg(RCC_CFGR, temp_reg);
-  
-  /* Reset PREDIV[3:0] bits */
-  /* RCC->CFGR2 &= (uint32_t)0xFFFFFFF0U; */
-	temp_reg = read_reg(RCC_CFGR2, 0xFFFFFFF0U);
-	write_reg(RCC_CFGR2, temp_reg);
+    u32_t temp_reg;
+    volatile u32_t timeout;
 
-  /* Reset USART1SW[1:0], I2C1SW and ADCSW bits */
-  /* RCC->CFGR3 &= (uint32_t)0xFFFFFEECU; */
-	temp_reg = read_reg(RCC_CFGR3, 0xFFFFFEECU);
-	write_reg(RCC_CFGR3, temp_reg);
-  /* Reset HSI14 bit */
-  /* RCC->CR2 &= (uint32_t)0xFFFFFFFEU; */
-	temp_reg = read_reg(RCC_CR2, 0xFFFFFFFEU);
-	write_reg(RCC_CR2, temp_reg);
-  
-  /* Disable all interrupts */
-  /* RCC->CIR = 0x00000000U; */
-	write_reg(RCC_CIR, 0x00000000U);
+    /* Disable all interrupts */
+    write_reg(RCC_CIR, 0x00000000U);
+
+
+    /* This infomation gets from SystemClock_Config() function which was generated from STM32CubeMX */
+    /* Disable the Internal High Speed oscillator (HSI). */
+    temp_reg = read_reg(RCC_CR, ~0x00000001U);
+    write_reg(RCC_CR, temp_reg);
+    
+    /* Wait till HSI is disabled */
+    timeout = 0xFFF;
+    do {
+        temp_reg = read_reg(RCC_CR, 0x00000002U);
+        timeout--;
+    } while ((0 != temp_reg) && (timeout > 0));
+    
+    /* Disable the main PLL. */
+    temp_reg = read_reg(RCC_CR, ~(1 << 24));
+    write_reg(RCC_CR, temp_reg);
+    
+    /* Wait till PLL is disabled */
+    timeout = 0xFFFFFFFF;
+    do {
+        temp_reg = read_reg(RCC_CR, (1 << 25));
+        timeout--;
+    } while ((0 != temp_reg) && (timeout > 0));
+    
+    /* Configure the main PLL clock source, predivider and multiplication factor. */
+    temp_reg = read_reg(RCC_CFGR2, ~0xFFFFFFF0U);
+    temp_reg |= hsi_prediv;
+    write_reg(RCC_CFGR2, temp_reg);
+    
+    temp_reg = read_reg(RCC_CFGR, ~(0xF << 18));
+    temp_reg |= pullmux << 18;
+    write_reg(RCC_CFGR, temp_reg);
+    
+    temp_reg = read_reg(RCC_CFGR, ~(0x3 << 15));
+    temp_reg |= pllsrc << 15;
+    write_reg(RCC_CFGR, temp_reg);
+    
+    /* Enable the main PLL. */
+    temp_reg = read_reg(RCC_CR, ~(1 << 24));
+    temp_reg |= 1 << 24;
+    write_reg(RCC_CR, temp_reg);
+    
+    /* Wait till PLL is ready */
+    timeout = 0xFFFFFFFF;
+    do {
+        temp_reg = read_reg(RCC_CR, (1 << 25));
+        timeout--;
+    } while ((0 == temp_reg) && (timeout > 0));
+
+    /* Initializes the CPU, AHB and APB busses clocks */
+    /* HCLK configration */
+    temp_reg = read_reg(RCC_CFGR, ~(0xF << 4));
+    temp_reg |= ahb_div << 4;
+    write_reg(RCC_CFGR, temp_reg);
+
+    /* HSE is selected as System Clock Source */
+    temp_reg = read_reg(RCC_CFGR, ~(0x3 << 0));
+    temp_reg |= system_source << 0;
+    write_reg(RCC_CFGR, temp_reg);
+    
+    /* Wait till System clock switch is ready */
+    timeout = 0xFFFFFFFF;
+    do {
+        temp_reg = read_reg(RCC_CFGR, (0x3 << 2));
+        timeout--;
+    } while (((2<<2) != temp_reg) && (timeout > 0));
+
+    /* APB1 prescaler */
+    temp_reg = read_reg(RCC_CFGR, ~(0x7 << 8));
+    temp_reg |= apb1_div << 8;
+    write_reg(RCC_CFGR, temp_reg);
+    
+    /* USART1 */
+    temp_reg = read_reg(RCC_CFGR3, ~(0x3 << 0));
+    temp_reg |= 0 << 0; /* PCLK1 */
+    write_reg(RCC_CFGR3, temp_reg);
+
 }
 
 /*Enable Clock*/
