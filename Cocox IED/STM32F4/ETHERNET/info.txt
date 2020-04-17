@@ -1,0 +1,3 @@
+                Bytes      Cards  Artifacts     Deltas
+Sent:              53          1          0          0
+waiting for server...Total network traffic: 0 bytes sent, 0 bytes received

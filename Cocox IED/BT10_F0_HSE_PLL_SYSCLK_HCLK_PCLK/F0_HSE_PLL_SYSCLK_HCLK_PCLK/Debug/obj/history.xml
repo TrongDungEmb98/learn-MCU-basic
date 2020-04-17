@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R6 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\F0_HSE_PLL_SYSCLK_HCLK_PCLK\stm32_lib -I..\..\..\workspace -I..\..\..\workspace\F0_HSE_PLL_SYSCLK_HCLK_PCLK\stm32_lib\inc -I..\..\..\workspace\F0_HSE_PLL_SYSCLK_HCLK_PCLK -I..\..\..\workspace\F0_HSE_PLL_SYSCLK_HCLK_PCLK\cmsis_boot -I..\..\..\workspace\F0_HSE_PLL_SYSCLK_HCLK_PCLK\cmsis_core">
+      <target file="stm32f0xx_gpio.o" lastModified="1709df5c730">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="1709ddcff5f"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="1709df5c4fe">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="1709ddcef26"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="1709df5c694">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="1709ddcef64"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="1709df5c607">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="1709ddcef45"/>
+      </target>
+      <target file="main.o" lastModified="1709df5c5e8">
+         <source file="..\..\..\main.c" lastModified="1709df5c0f9"/>
+      </target>
+   </processor>
+</history>

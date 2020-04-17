@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BT12_USART_Interupt.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BT12_USART_Interupt -TC:\CooCox\CoIDE\configuration\ProgramData\BT12_USART_Interupt/arm-gcc-link.ld -g">
+      <target file="BT12_USART_Interupt.elf" lastModified="170e151708f">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="170e1516386"/>
+         <source file="..\obj\main.o" lastModified="170e15165e3"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="170e1516660"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="170e151676a"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="170e1516865"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="170e15169c9"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="170e1516a57"/>
+      </target>
+   </processor>
+</history>

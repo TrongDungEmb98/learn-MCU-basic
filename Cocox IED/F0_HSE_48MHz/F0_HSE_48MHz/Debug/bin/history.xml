@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=F0_HSE_48MHz.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_48MHz -TC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_48MHz/arm-gcc-link.ld -g">
+      <target file="F0_HSE_48MHz.elf" lastModified="16fa7543b4d">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="16fa75437d4"/>
+         <source file="..\obj\main.o" lastModified="16fa7543841"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="16fa7543851"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="16fa75438ae"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="16fa754393b"/>
+      </target>
+   </processor>
+</history>

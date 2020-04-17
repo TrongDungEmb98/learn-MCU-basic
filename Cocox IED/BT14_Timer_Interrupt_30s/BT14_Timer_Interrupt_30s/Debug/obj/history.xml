@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R6 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\BT14_Timer_Interrupt_30s\stm32_lib\inc -I..\..\..\workspace -I..\..\..\workspace\BT14_Timer_Interrupt_30s\cmsis_core -I..\..\..\workspace\BT14_Timer_Interrupt_30s\stm32_lib -I..\..\..\workspace\BT14_Timer_Interrupt_30s\cmsis_boot -I..\..\..\workspace\BT14_Timer_Interrupt_30s">
+      <target file="stm32f0xx_gpio.o" lastModified="170ca5e8676">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="170ca54b4e1"/>
+      </target>
+      <target file="stm32f0xx_tim.o" lastModified="170ca5e87f8">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_tim.c" lastModified="170ca54d411"/>
+      </target>
+      <target file="stm32f0xx_misc.o" lastModified="170ca5e8855">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="170ca541a0a"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="170ca5e849e">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="170ca541a28"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="170ca5e85f2">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="170ca541a3c"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="170ca5e857e">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="170ca541a28"/>
+      </target>
+      <target file="main.o" lastModified="170ca5e8559">
+         <source file="..\..\..\main.c" lastModified="170ca5e7d27"/>
+      </target>
+   </processor>
+</history>

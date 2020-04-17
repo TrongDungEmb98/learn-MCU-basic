@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=F0_HSE_PLL_SYSCLK_HCLK_PCLK.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_PLL_SYSCLK_HCLK_PCLK -TC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_PLL_SYSCLK_HCLK_PCLK/arm-gcc-link.ld -g">
+      <target file="F0_HSE_PLL_SYSCLK_HCLK_PCLK.elf" lastModified="1709df5c971">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="1709df5c4fe"/>
+         <source file="..\obj\main.o" lastModified="1709df5c5e8"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="1709df5c607"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="1709df5c694"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="1709df5c730"/>
+      </target>
+   </processor>
+</history>

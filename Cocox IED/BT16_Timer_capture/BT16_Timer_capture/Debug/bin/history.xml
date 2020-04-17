@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BT16_Timer_capture.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BT16_Timer_capture -TC:\CooCox\CoIDE\configuration\ProgramData\BT16_Timer_capture/arm-gcc-link.ld -g">
+      <target file="BT16_Timer_capture.elf" lastModified="171054dd32f">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="171054dc2c7"/>
+         <source file="..\obj\main.o" lastModified="171054dc5bf"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="171054dc5e6"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="171054dc7ac"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="171054dc914"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="171054dcb14"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="171054dce90"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="171054dcf6c"/>
+      </target>
+   </processor>
+</history>

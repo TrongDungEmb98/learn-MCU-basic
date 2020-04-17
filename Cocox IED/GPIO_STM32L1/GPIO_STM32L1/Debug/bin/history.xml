@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=GPIO_STM32L1.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\GPIO_STM32L1 -TC:\CooCox\CoIDE\configuration\ProgramData\GPIO_STM32L1/arm-gcc-link.ld -g">
+      <target file="GPIO_STM32L1.elf" lastModified="16f4033b773">
+         <source file="..\obj\startup_stm32l1xx_md.o" lastModified="16f3dd3b5bc"/>
+         <source file="..\obj\system_stm32l1xx.o" lastModified="16f3dd3b639"/>
+         <source file="..\obj\main.o" lastModified="16f4033b560"/>
+         <source file="..\obj\l1_rcc.o" lastModified="16f3dd3b723"/>
+         <source file="..\obj\stm32l1xx_syscfg.o" lastModified="16f3dd3b781"/>
+         <source file="..\obj\l1_gpio.o" lastModified="16f403266c6"/>
+      </target>
+   </processor>
+</history>

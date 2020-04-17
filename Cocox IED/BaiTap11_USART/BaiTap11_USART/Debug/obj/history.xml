@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R6 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace -I..\..\..\workspace\BaiTap11_USART\stm32_lib\inc -I..\..\..\workspace\BaiTap11_USART\stm32_lib -I..\..\..\workspace\BaiTap11_USART\cmsis_core -I..\..\..\workspace\BaiTap11_USART -I..\..\..\workspace\BaiTap11_USART\cmsis_boot">
+      <target file="stm32f0xx_gpio.o" lastModified="170ccfe2f65">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="170a99eeabf"/>
+      </target>
+      <target file="stm32f0xx_usart.o" lastModified="170ccfe309f">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="170a99f0f8f"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="170ccfe2912">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="170a99eeadd"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="170ccfe2e9a">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="170a99eeb00"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="170ccfe2c1a">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="170a99eeaed"/>
+      </target>
+      <target file="main.o" lastModified="170ccfe2bd4">
+         <source file="..\..\..\main.c" lastModified="170ccfe2158"/>
+      </target>
+   </processor>
+</history>

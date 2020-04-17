@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace\STM32L1_GPIO_Button\cmsis /I..\..\..\workspace\STM32L1_GPIO_Button\cmsis_lib /I..\..\..\workspace\STM32L1_GPIO_Button /I..\..\..\workspace\STM32L1_GPIO_Button\cmsis_lib\Include /I..\..\..\workspace\STM32L1_GPIO_Button\cmsis_boot /I..\..\..\workspace">
+      <source file="..\..\..\cmsis_boot\stm32l1xx.h" lastModified="16f4194d13f">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32l1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="16f4194d14f">
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="16f4194d14f">
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="16f4194cd67">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Include\stm32l1xx_rcc.h" lastModified="16f4194dec0">
+         <include file="..\..\..\cmsis_boot\stm32l1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\Startup\startup_stm32l1xx_md.c" lastModified="16f4194c960">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32l1xx.h" lastModified="16f4194c96f">
+      </source>
+      <source file="..\..\..\cmsis_lib\Include\stm32l1xx_gpio.h" lastModified="16f4194dec0">
+         <include file="..\..\..\cmsis_boot\stm32l1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32l1xx.c" lastModified="16f4194c96f">
+         <include file="..\..\..\cmsis_boot\stm32l1xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Source\stm32l1xx_rcc.c" lastModified="16f4194dec0">
+         <include file="..\..\..\cmsis_lib\Include\stm32l1xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\Source\stm32l1xx_gpio.c" lastModified="16f4194dec0">
+         <include file="..\..\..\cmsis_lib\Include\stm32l1xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\Include\stm32l1xx_rcc.h"/>
+      </source>
+   </includePath>
+</dependencies>

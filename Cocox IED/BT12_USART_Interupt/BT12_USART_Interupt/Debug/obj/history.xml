@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R6 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\BT12_USART_Interupt\cmsis_core -I..\..\..\workspace\BT12_USART_Interupt -I..\..\..\workspace -I..\..\..\workspace\BT12_USART_Interupt\stm32_lib\inc -I..\..\..\workspace\BT12_USART_Interupt\cmsis_boot -I..\..\..\workspace\BT12_USART_Interupt\stm32_lib">
+      <target file="stm32f0xx_gpio.o" lastModified="170e1516865">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="170bffe4f94"/>
+      </target>
+      <target file="stm32f0xx_misc.o" lastModified="170e1516a57">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="170c00e8857"/>
+      </target>
+      <target file="stm32f0xx_usart.o" lastModified="170e15169c9">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="170bffe4f75"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="170e1516386">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="170bffe4fa3"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="170e151676a">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="170bffe4fc3"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="170e1516660">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="170bffe4fb3"/>
+      </target>
+      <target file="main.o" lastModified="170e15165e3">
+         <source file="..\..\..\main.c" lastModified="170e1514279"/>
+      </target>
+   </processor>
+</history>

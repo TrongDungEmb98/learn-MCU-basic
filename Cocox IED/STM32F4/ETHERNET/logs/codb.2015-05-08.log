@@ -1,0 +1,88 @@
+16:58:19.121 [Worker-27] ERROR org.coocox.codb.common.log.ErrorLog - [clone user pass] executed Error 
+null
+
+16:58:19.123 [Worker-29] ERROR org.coocox.codb.common.log.ErrorLog - [clone user pass] executed Error 
+L:\CoIDE\bin\fossil.exe: SQLITE_ERROR: table blob already exists
+L:\CoIDE\bin\fossil.exe: table blob already exists
+If you have recently updated your fossil executable, you might
+need to run "fossil all rebuild" to bring the repository
+schemas up to date.
+
+16:58:19.123 [Worker-31] ERROR org.coocox.codb.common.log.ErrorLog - [clone user pass] executed Error 
+L:\CoIDE\bin\fossil.exe: SQLITE_ERROR: table blob already exists
+L:\CoIDE\bin\fossil.exe: table blob already exists
+If you have recently updated your fossil executable, you might
+need to run "fossil all rebuild" to bring the repository
+schemas up to date.
+
+16:58:19.144 [Worker-29] ERROR org.coocox.codb.common.log.ErrorLog - freshExamplesByCompId API failed 
+clone from server errored
+org.coocox.codb.common.fossil.Fossil.cloneFromServer(Fossil.java:89)
+org.coocox.codb.client.core.service.RepoService.clone(RepoService.java:79)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesByCompId(ExampleApiImpl.java:272)
+org.coocox.example.core.impl.ExampleDBCmdHandler.freshExamplesByCompId(ExampleDBCmdHandler.java:51)
+org.coocox.integrate.component.views.ComponentView$4$1.run(ComponentView.java:346)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+16:58:19.146 [Worker-27] ERROR org.coocox.codb.common.log.ErrorLog - freshExamplesByCompId API failed 
+clone from server errored
+org.coocox.codb.common.fossil.Fossil.cloneFromServer(Fossil.java:89)
+org.coocox.codb.client.core.service.RepoService.clone(RepoService.java:79)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesByCompId(ExampleApiImpl.java:272)
+org.coocox.example.core.impl.ExampleDBCmdHandler.freshExamplesByCompId(ExampleDBCmdHandler.java:51)
+org.coocox.integrate.component.views.ComponentView$4$1.run(ComponentView.java:346)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+16:58:19.147 [Worker-31] ERROR org.coocox.codb.common.log.ErrorLog - freshExamplesByCompId API failed 
+clone from server errored
+org.coocox.codb.common.fossil.Fossil.cloneFromServer(Fossil.java:89)
+org.coocox.codb.client.core.service.RepoService.clone(RepoService.java:79)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesByCompId(ExampleApiImpl.java:272)
+org.coocox.example.core.impl.ExampleDBCmdHandler.freshExamplesByCompId(ExampleDBCmdHandler.java:51)
+org.coocox.integrate.component.views.ComponentView$4$1.run(ComponentView.java:346)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+16:58:31.399 [Worker-19] INFO  org.coocox.codb.common.log.ErrorLog - [L:/CoIDE/bin\fossil.exe,sync,http://admin:cabedb@data.coocox.org:9090/cgi-bin/repo/fba9d590-093e-11e2-88e3-0016ecbf7044,-R,L:/CoIDE/repo\.rn\fossils\fba9d590-093e-11e2-88e3-0016ecbf7044.fossil] executed OK 
+Bytes      Cards  Artifacts     Deltas
+Sent:             355          5          0          0
+waiting for server...Total network traffic: 0 bytes sent, 0 bytes received
+
+16:58:32.098 [Worker-19] INFO  org.coocox.codb.common.log.ErrorLog - [L:/CoIDE/bin\fossil.exe,open,L:/CoIDE/repo\.rn\fossils\fba9d590-093e-11e2-88e3-0016ecbf7044.fossil,-latest,-keep] executed OK 
+project-name: <unnamed>
+repository:   L:/CoIDE/repo\.rn\fossils\fba9d590-093e-11e2-88e3-0016ecbf7044.fossil
+local-root:   L:/CoIDE/repo/Examples/376_EXTI_Example/
+user-home:    C:/Users/LIEU/AppData/Local
+project-code: 3ecfa6865d3c6d80d4ea06be5e2bae582badd41e
+checkout:     cc72257ab129329d6d6ac669241572c2fd39099e 2012-10-31 02:19:29 UTC
+parent:       a837d5d19a7b348ecdeaec520130bc67cb2a8037 2012-10-31 02:19:25 UTC
+tags:         trunk
+comment:      commit the component example sourceCode and document (user:
+              admin)
+
+16:58:32.346 [Worker-19] INFO  org.coocox.codb.common.log.ErrorLog - [L:/CoIDE/bin\fossil.exe,checkout,-latest,-force] executed OK 
+EXTI_Example.c
+
+16:58:32.442 [Worker-19] INFO  org.coocox.codb.common.log.ErrorLog - [clean] executed OK 
+
+
+16:58:32.511 [Worker-19] INFO  org.coocox.codb.common.log.ErrorLog - [L:/CoIDE/bin\fossil.exe,close,-force] executed OK 
+
+
+16:58:33.081 [Worker-19] INFO  org.coocox.codb.common.log.ProcessTimeLog - 47`429`freshExamplesByCompId`4658
+17:02:42.153 [Worker-33] ERROR org.coocox.codb.common.log.ErrorLog - [clone user pass] executed Error 
+L:\CoIDE\bin\fossil.exe: cannot connect to host data.coocox.org:9090
+L:\CoIDE\bin\fossil.exe: server returned an error - clone aborted
+
+17:02:42.156 [Worker-33] ERROR org.coocox.codb.common.log.ErrorLog - freshExamplesSingle API failed 
+clone from server errored
+org.coocox.codb.common.fossil.Fossil.cloneFromServer(Fossil.java:89)
+org.coocox.codb.client.core.service.RepoService.clone(RepoService.java:79)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesSingle(ExampleApiImpl.java:512)
+org.coocox.example.actions.AbstractRefreshExampleAction.doThings(AbstractRefreshExampleAction.java:70)
+org.coocox.common.ui.action.AbstractRefreshAction$3.run(AbstractRefreshAction.java:165)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BaiTap11_USART.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BaiTap11_USART -TC:\CooCox\CoIDE\configuration\ProgramData\BaiTap11_USART/arm-gcc-link.ld -g">
+      <target file="BaiTap11_USART.elf" lastModified="170ccfe33bd">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="170ccfe2912"/>
+         <source file="..\obj\main.o" lastModified="170ccfe2bd4"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="170ccfe2c1a"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="170ccfe2e9a"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="170ccfe2f65"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="170ccfe309f"/>
+      </target>
+   </processor>
+</history>

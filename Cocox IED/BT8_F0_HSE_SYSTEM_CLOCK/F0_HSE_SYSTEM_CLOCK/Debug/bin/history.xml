@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=F0_HSE_SYSTEM_CLOCK.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_SYSTEM_CLOCK -TC:\CooCox\CoIDE\configuration\ProgramData\F0_HSE_SYSTEM_CLOCK/arm-gcc-link.ld -g">
+      <target file="F0_HSE_SYSTEM_CLOCK.elf" lastModified="1709be18005">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="1709be17cb9"/>
+         <source file="..\obj\main.o" lastModified="1709be17d17"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="1709be17d26"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="1709be17d94"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="1709be17e10"/>
+      </target>
+   </processor>
+</history>

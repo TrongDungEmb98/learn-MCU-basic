@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BT13_Timer.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BT13_Timer -TC:\CooCox\CoIDE\configuration\ProgramData\BT13_Timer/arm-gcc-link.ld -g">
+      <target file="BT13_Timer.elf" lastModified="170f0df254f">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="170f0df1b98"/>
+         <source file="..\obj\main.o" lastModified="170f0df1cc9"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="170f0df1ce2"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="170f0df1d97"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="170f0df1e68"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="170f0df2102"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="170f0df2252"/>
+      </target>
+   </processor>
+</history>

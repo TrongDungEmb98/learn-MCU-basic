@@ -1,0 +1,2 @@
+L:\CoIDE\bin\fossil.exe: cannot connect to host data.coocox.org:9090
+L:\CoIDE\bin\fossil.exe: server returned an error - clone aborted

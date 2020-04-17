@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BT14_Timer_Interrupt_30s.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BT14_Timer_Interrupt_30s -TC:\CooCox\CoIDE\configuration\ProgramData\BT14_Timer_Interrupt_30s/arm-gcc-link.ld -g">
+      <target file="BT14_Timer_Interrupt_30s.elf" lastModified="170ca5e8b08">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="170ca5e849e"/>
+         <source file="..\obj\main.o" lastModified="170ca5e8559"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="170ca5e857e"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="170ca5e85f2"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="170ca5e8676"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="170ca5e87f8"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="170ca5e8855"/>
+      </target>
+   </processor>
+</history>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=BT20_SPI_Master.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\BT20_SPI_Master -TC:\CooCox\CoIDE\configuration\ProgramData\BT20_SPI_Master/arm-gcc-link.ld -g">
+      <target file="BT20_SPI_Master.elf" lastModified="1717c0c0824">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="1717c0bfc90"/>
+         <source file="..\obj\main.o" lastModified="1717c0bfee1"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="1717c0bff10"/>
+         <source file="..\obj\stm32f0xx_spi.o" lastModified="1717c0c00c5"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="1717c0c0190"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="1717c0c02b8"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="1717c0c047c"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="1717c0c0557"/>
+      </target>
+   </processor>
+</history>

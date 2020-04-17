@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32L100RC -DSTM32L1XX_MDP -I..\..\..\workspace\STM32L1_GPIO_DIR_ARR\cmsis_lib\Include -I..\..\..\workspace\STM32L1_GPIO_DIR_ARR\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\STM32L1_GPIO_DIR_ARR\cmsis -I..\..\..\workspace\STM32L1_GPIO_DIR_ARR\cmsis_lib -I..\..\..\workspace\STM32L1_GPIO_DIR_ARR">
+      <target file="stm32l1xx_gpio.o" lastModified="16f6e9b835d">
+         <source file="..\..\..\cmsis_lib\Source\stm32l1xx_gpio.c" lastModified="16f6e90b922"/>
+      </target>
+      <target file="system_stm32l1xx.o" lastModified="16f6e9b84c4">
+         <source file="..\..\..\cmsis_boot\system_stm32l1xx.c" lastModified="16f6e90b951"/>
+      </target>
+      <target file="startup_stm32l1xx_md.o" lastModified="16f6e9b839c">
+         <source file="..\..\..\cmsis_boot\Startup\startup_stm32l1xx_md.c" lastModified="16f6e90b942"/>
+      </target>
+      <target file="misc.o" lastModified="16f6e9b865a">
+         <source file="..\..\..\cmsis_lib\Source\misc.c" lastModified="16f6e90b980"/>
+      </target>
+      <target file="main.o" lastModified="16f6e9c8cdf">
+         <source file="..\..\..\main.c" lastModified="16f6e9c87ef"/>
+      </target>
+      <target file="stm32l1xx_rcc.o" lastModified="16f6e9b8447">
+         <source file="..\..\..\cmsis_lib\Source\stm32l1xx_rcc.c" lastModified="16f6e90b932"/>
+      </target>
+      <target file="stm32l1xx_syscfg.o" lastModified="16f6e9b85ec">
+         <source file="..\..\..\cmsis_lib\Source\stm32l1xx_syscfg.c" lastModified="16f6e90b990"/>
+      </target>
+   </processor>
+</history>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32L100RC -DSTM32L1XX_MDP -I..\..\..\workspace\GPIO_STM32L1\cmsis_lib -I..\..\..\workspace\GPIO_STM32L1\cmsis -I..\..\..\workspace\GPIO_STM32L1\cmsis_lib\Include -I..\..\..\workspace -I..\..\..\workspace\GPIO_STM32L1 -I..\..\..\workspace\GPIO_STM32L1\cmsis_boot">
+      <target file="l1_gpio.o" lastModified="16f403266c6">
+         <source file="..\..\..\cmsis_lib\Source\l1_gpio.c" lastModified="16f4032608f"/>
+      </target>
+      <target file="system_stm32l1xx.o" lastModified="16f3dd3b639">
+         <source file="..\..\..\cmsis_boot\system_stm32l1xx.c" lastModified="16f1c43e287"/>
+      </target>
+      <target file="startup_stm32l1xx_md.o" lastModified="16f3dd3b5bc">
+         <source file="..\..\..\cmsis_boot\Startup\startup_stm32l1xx_md.c" lastModified="16f1c43e268"/>
+      </target>
+      <target file="main.o" lastModified="16f4033b560">
+         <source file="..\..\..\main.c" lastModified="16f4033af48"/>
+      </target>
+      <target file="l1_rcc.o" lastModified="16f3dd3b723">
+         <source file="..\..\..\cmsis_lib\Source\l1_rcc.c" lastModified="16f3dbeb471"/>
+      </target>
+      <target file="stm32l1xx_syscfg.o" lastModified="16f3dd3b781">
+         <source file="..\..\..\cmsis_lib\Source\stm32l1xx_syscfg.c" lastModified="16f1c43e2d5"/>
+      </target>
+   </processor>
+</history>
