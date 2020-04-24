@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=I2C_Slave_Transmit.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\I2C_Slave_Transmit -TC:\CooCox\CoIDE\configuration\ProgramData\I2C_Slave_Transmit/arm-gcc-link.ld -g">
+      <target file="I2C_Slave_Transmit.elf" lastModified="171150a0487">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="1711509fb7b"/>
+         <source file="..\obj\main.o" lastModified="1711509fcc1"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="1711509fd0f"/>
+         <source file="..\obj\stm32f0xx_i2c.o" lastModified="1711509fed9"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="1711509ffb1"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="171150a00a5"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="171150a016f"/>
+      </target>
+   </processor>
+</history>
