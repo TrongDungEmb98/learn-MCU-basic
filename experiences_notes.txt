@@ -1,0 +1,22 @@
+1. Low pass filter:
+
+Low pass filter nó là lọc chung, em đưa vào tần số cắt
+Nó dùng cho những tín hiệu em tin tưởng là chắc chắn thay đổi chậm, nhanh là loại bỏ dần
+Ví dụ nhiệt độ phòng
+K thể tăng nhanh đc
+Nên em cho vào để lọc nhiễu
+Ví dụ đang 27 độ
+1s sau lên thành 39
+Là vô lí
+Nên cho filter vào để lọc
+Nõ sẽ qua filter thằnh 29.5 chẳng hạn
+Dần dần rất chậm tiến tới giá trị cân bằng
+gain = 1, thì tin là giá trị sau ko khác quá 1% giá trụ trc ở mỗi lần lấy mẫu
+	
+/** Example code:
+ *	gain = 1;  
+ *	x = adc_read();
+ *	new = old*(1-gain) + gain*x = old -gain*(old-x).
+ */
+
+2. Nếu cảm biến độ nhạy yêu cầu thật cao thì ko dùng low pass đc, có thể dùng kalman filter.
