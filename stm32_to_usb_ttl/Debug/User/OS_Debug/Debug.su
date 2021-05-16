@@ -1,0 +1,2 @@
+Debug.c:12:5:app_debug_rtt	280	static
+Debug.c:41:6:os_trace_hex	288	static

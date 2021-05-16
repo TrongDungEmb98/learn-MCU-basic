@@ -1,0 +1,13 @@
+core_cm4.h:1535:22:NVIC_SetPriority	16	static
+core_cm4.h:1662:26:SysTick_Config	16	static
+main.c:52:6:pc_uart_put_c	16	static
+main.c:59:6:pc_uart_send_data	24	static
+main.c:69:6:clear_pc_uart_buf	8	static
+main.c:76:6:USART1_IRQHandler	16	static
+main.c:95:6:pc_uart_init	40	static
+main.c:137:10:get_tick_ms	4	static
+main.c:142:6:delay	24	static
+main.c:149:6:delay_ms	24	static
+main.c:170:6:led_init	16	static
+main.c:187:6:toggle_led_pin	8	static
+main.c:215:5:main	8	static
